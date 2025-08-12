@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Botão de Acessibilidade</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    /* Container fixo no canto inferior direito */
+    .acessibilidade {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      text-align: center;
+    }
+
+    /* Botão principal */
+    #btnAcessibilidade {
+      background-color: #0055aa;
+      color: white;
+      border: none;
+      padding: 15px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    /* Menu oculto por padrão */
+    .opcoes {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    /* Estilo das opções */
+    .opcoes button {
+      padding: 8px;
+      background-color: #eee;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .opcoes button:hover {
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="acessibilidade">
+    <button id="btnAcessibilidade" aria-label="Opções de acessibilidade">♿</button>
+    <div class="opcoes" id="opcoesAcessibilidade">
+      <button>Aumentar fonte</button>
+      <button>Contraste alto</button>
+      <button>Modo leitura</button>
+    </div>
+  </div>
+
+  <script>
+    const botao = document.getElementById("btnAcessibilidade");
+    const opcoes = document.getElementById("opcoesAcessibilidade");
+
+    // Mostrar opções ao passar o mouse
+    botao.addEventListener("mouseover", () => {
+      opcoes.style.display = "flex";
+    });
+
+    // Ocultar quando o mouse sair da área do container
+    document.querySelector(".acessibilidade").addEventListener("mouseleave", () => {
+      opcoes.style.display = "none";
+    });
+  </script>
+</body>
+</html>
